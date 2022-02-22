@@ -1,8 +1,10 @@
 import Card from './Card';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-function CardsList(props) {
-  let cards = props.contacts
+function CardsList() {
+  const contactsList = useSelector((state) => state.contacts.list);
+
+  let cards = contactsList
     .filter((contact) => contact.onBoard)
     .map((contact) => <Card key={contact.id} contact={contact} />);
 
@@ -11,10 +13,4 @@ function CardsList(props) {
   return <div className='cards'>{cards}</div>;
 }
 
-const mapStateToProps = (state) => {
-  return {
-    contacts: state.contacts.list,
-  };
-};
-
-export default connect(mapStateToProps)(CardsList);
+export default CardsList;

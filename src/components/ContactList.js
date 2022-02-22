@@ -1,18 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AddContact from './modals/AddContact';
-import { connect } from 'react-redux';
-import * as actions from '../store/actions/contactsAction';
+import { useSelector, useDispatch } from 'react-redux';
+import { addContactOnBoard } from '../store/slices/contactsSlice';
 
-function ContactList(props) {
+function ContactList() {
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    props.initContacts();
-  });
+  const contactsList = useSelector((state) => state.contacts.list);
+  const dispatch = useDispatch();
 
-  const contacts = props.contacts.map((contact) => {
+  const contacts = contactsList.map((contact) => {
     return (
-      <li onClick={() => props.addContactOnBoard(contact.id)} key={contact.id}>
+      <li
+        onClick={() => dispatch(addContactOnBoard(contact.id))}
+        key={contact.id}
+      >
         {contact.name}
       </li>
     );
@@ -31,16 +33,4 @@ function ContactList(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    contacts: state.contacts.list,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    initContacts: () => dispatch(actions.initContacts()),
-    addContactOnBoard: (id) => dispatch(actions.addContactOnBoard(id)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default ContactList;

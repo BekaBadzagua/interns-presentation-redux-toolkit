@@ -1,17 +1,19 @@
 import { useRef } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../store/actions/contactsAction';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../store/slices/contactsSlice';
 
 function AddContact(props) {
   const nameRef = useRef();
   const phoneRef = useRef();
+
+  const dispatch = useDispatch();
 
   const handleAdd = () => {
     const contact = {
       name: nameRef.current.value,
       phone: phoneRef.current.value,
     };
-    props.addContact(contact);
+    dispatch(addContact(contact));
     props.setShowModal(false);
   };
 
@@ -44,10 +46,4 @@ function AddContact(props) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addContact: (contact) => dispatch(actions.addContact(contact)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(AddContact);
+export default AddContact;
