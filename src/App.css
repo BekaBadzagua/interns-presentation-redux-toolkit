@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
+header{
+    background-color: aquamarine;
+    padding: 30px;
+}
+header span{
+    font-size: 30px;
+    font-family: cursive;
+}
+.content{
+    display: flex;
+    border-top: 2px solid black;
+}
+.content > div{
+    padding: 20px;
+}
+.list{
+    border-right: 2px solid black;
+    min-height: calc(100vh - 104px);
+    background-color: #fffcd7;
+    width: 300px;
+    box-sizing: border-box;
+}
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: silver;
+}
+.card{
+    width: 400px;
+    height: 200px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 2px solid grey;
+    margin: 30px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    position: relative;
+}
+.card h3{
+    font-size: 30px;
+    margin-top: 10px;
+}
+.buttons{
+    position: absolute;
+    bottom: 0;
+}
+.buttons button{
+    margin:10px;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border:1px solid silver;
+    background-color: rgb(251, 157, 41);
+}
+button:hover{
+    cursor: pointer;
+    background-color: orangered;
+    transition: 0.2s;
+}
+.edit{
+    background-color: #fffcd7;
+}
+.call{
+    background-color: #65f86d;
+}
+.call:hover{
+    background-color: #afffb3;
+}
+.edit:hover{
+    background-color: #faf0b6;
+}
+.delete{
+    background-color: rgb(253, 232, 227);
+}
+.delete:hover{
+    background-color: rgb(255, 184, 166);
+}
+.close{
+    background-color: aquamarine;
+}
+.close:hover{
+    background-color: rgb(204, 248, 233);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn-add{
+    background-color: rgb(255, 255, 250);
+    text-transform: uppercase;
+    width: 100%;
+}
+.list ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.list li{
+    margin-top: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.list li:hover{
+    cursor: pointer;
+    background-color: rgba(236, 236, 236, 0.705);
+    transition: 0.2s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modal-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+}
+.modal{
+    background-color: #d7ffd9;
+    border-radius: 20px;
+}
+.modal-content{
+    padding: 30px 50px 15px 50px;
+}
+.modal-footer{
+    background-color: #92fb98;
+    padding: 20px 50px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+}
+.modal-footer button{
+    margin:10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-group label{
+    display: block;
+    margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-group input{
+    display: block;
+    margin-bottom: 30px;
+    font-size: 20px;
 }
